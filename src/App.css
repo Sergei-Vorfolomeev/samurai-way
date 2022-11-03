@@ -9,27 +9,15 @@
 "h h"
 "n c";
 }
-
-.header {
-    background-color: #61dafb;
-    grid-area: h;
-}
-
-.header img {
-    width: 100px;
-}
-
-.nav {
-    background-color: aquamarine;
-    grid-area: n;
-}
-
-.content {
+.app-wrapper-content {
     background-color: lavender;
     grid-area: c;
 }
-.content img {
-    height: 150px;
-}
+
+
+
+
+
+
 
 
