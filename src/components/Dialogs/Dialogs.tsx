@@ -5,20 +5,48 @@ import {v1} from "uuid";
 import {Message} from "./Message";
 
 export const Dialogs = () => {
+
+    let dialogsData = [
+        {id: v1(), name: 'Sergey'},
+        {id: v1(), name: 'Vadim'},
+        {id: v1(), name: 'Tolya'},
+        {id: v1(), name: 'Fedya'},
+        {id: v1(), name: 'Elina'},
+        {id: v1(), name: 'Lenya'},
+    ]
+
+    let messageData = [
+        {id: v1(), message: 'Hello'},
+        {id: v1(), message: 'How are you?'},
+        {id: v1(), message: 'I\'m fine!'},
+    ]
+
     return (
         <div className={styles.dialogs}>
             <div className={styles.dialogItem}>
-                <Dialog id={v1()} name={'Sergey'} />
-                <Dialog id={v1()} name={'Vadim'} />
-                <Dialog id={v1()} name={'Tolya'} />
-                <Dialog id={v1()} name={'Fedya'} />
-                <Dialog id={v1()} name={'Elina'} />
-                <Dialog id={v1()} name={'Lenya'} />
+                <ul>
+                    {dialogsData.map(el => {
+                        return (
+                            <li key={el.id}>
+                                <Dialog
+                                    id={el.id}
+                                    name={el.name}/>
+                            </li>
+                        )
+                    })}
+                </ul>
             </div>
             <div className={styles.messages}>
-                <Message text={'Hello'}/>
-                <Message text={'How are you?'}/>
-                <Message text={'I\'m fine!'}/>
+                <ul>
+                    {messageData.map(el => {
+                        return(
+                        <li key={el.id}>
+                        <Message
+                        text={el.message}/>
+                        </li>
+                        )
+                    })}
+                </ul>
             </div>
         </div>
     )
