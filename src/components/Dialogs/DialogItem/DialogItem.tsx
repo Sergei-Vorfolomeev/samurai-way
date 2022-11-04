@@ -1,4 +1,4 @@
-import styles from "./Dialogs.module.css";
+import styles from "./DialogItem.module.css";
 import {NavLink} from "react-router-dom";
 import React from "react";
 
@@ -7,7 +7,7 @@ type DialogPropsType = {
     name: string
 }
 
-export const Dialog = (props:DialogPropsType) => {
+export const DialogItem = (props:DialogPropsType) => {
     const {id, name} = props
     return (
         <div className={`${styles.dialog} ${styles.active}`}>

@@ -1,12 +1,19 @@
 import React from "react";
 import styles from './MyPosts.module.css'
 import {Post} from "./Post/Post";
+import {v1} from "uuid";
 
-
-export const MyPosts = () => {
+type MyPostsPropsType = {
+    postsData: Array<PostsType>
+}
+type PostsType = {
+    id: string
+    text: string
+    likesCount: number
+}
+export const MyPosts:React.FC<MyPostsPropsType> = (props) => {
+const{postsData} = props
     return (
-
-
         <div className={styles.myPosts}>
             <h3>My posts</h3>
             <div>
@@ -18,12 +25,12 @@ export const MyPosts = () => {
                     <button>Add post</button>
                 </div>
             </div>
-            <Post text='Buy Buy!' likesCount = {5} />
-            <Post text='How are you?' likesCount = {7} />
-            <Post text='I am so happy!' likesCount = {23} />
-            <Post text='It is my first post!' likesCount = {18} />
+            {postsData.map(el=>{
+                return (
+                    <Post key={el.id} text={el.text} likesCount = {el.likesCount}/>
+                )
+            })}
         </div>
-
     )
 }
 

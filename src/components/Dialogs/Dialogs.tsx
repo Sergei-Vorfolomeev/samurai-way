@@ -1,52 +1,41 @@
 import React from "react";
 import styles from './Dialogs.module.css'
-import {Dialog} from "./Dialog";
+import {DialogItem} from "./DialogItem/DialogItem";
 import {v1} from "uuid";
-import {Message} from "./Message";
+import {Message} from "./Message/Message";
 
-export const Dialogs = () => {
+type DialogsPropsType = {
+    dialogsData: Array<DialogType>
+    messagesData: Array<MessageType>
+}
 
-    let dialogsData = [
-        {id: v1(), name: 'Sergey'},
-        {id: v1(), name: 'Vadim'},
-        {id: v1(), name: 'Tolya'},
-        {id: v1(), name: 'Fedya'},
-        {id: v1(), name: 'Elina'},
-        {id: v1(), name: 'Lenya'},
-    ]
+type DialogType = {
+    id: string
+    name: string
+}
 
-    let messageData = [
-        {id: v1(), message: 'Hello'},
-        {id: v1(), message: 'How are you?'},
-        {id: v1(), message: 'I\'m fine!'},
-    ]
+type MessageType = {
+    id: string
+    message: string
+}
 
+export const Dialogs:React.FC<DialogsPropsType> = (props) => {
+    const {dialogsData,messagesData} = props
     return (
         <div className={styles.dialogs}>
             <div className={styles.dialogItem}>
-                <ul>
-                    {dialogsData.map(el => {
-                        return (
-                            <li key={el.id}>
-                                <Dialog
-                                    id={el.id}
-                                    name={el.name}/>
-                            </li>
-                        )
-                    })}
-                </ul>
+                {dialogsData.map(el => {
+                    return (
+                        <DialogItem key={el.id} id={el.id} name={el.name}/>
+                    )
+                })}
             </div>
             <div className={styles.messages}>
-                <ul>
-                    {messageData.map(el => {
-                        return(
-                        <li key={el.id}>
-                        <Message
-                        text={el.message}/>
-                        </li>
-                        )
-                    })}
-                </ul>
+                {messagesData.map(el => {
+                    return (
+                        <Message key={el.id} text={el.message}/>
+                    )
+                })}
             </div>
         </div>
     )
