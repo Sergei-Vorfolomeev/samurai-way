@@ -11,7 +11,7 @@ export const Dialogs:React.FC<MessagePageType> = (props) => {
             <div className={styles.dialogItem}>
                 {props.dialogs.map(el => {
                     return (
-                        <DialogItem key={el.id} id={el.id} name={el.name}/>
+                        <DialogItem key={el.id} id={el.id} name={el.name} avatar={el.avatar}/>
                     )
                 })}
             </div>

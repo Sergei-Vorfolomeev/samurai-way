@@ -13,7 +13,7 @@ const App: React.FC<StateType> = (props) => {
         <BrowserRouter>
             <div className="app-wrapper">
                 <Heading/>
-                <Navbar/>
+                <Navbar friends={props.sideBar.friends}/>
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path='/profile/*' element = {<Profile posts={props.profilePage.posts}/>}/>

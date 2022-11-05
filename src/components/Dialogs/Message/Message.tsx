@@ -10,7 +10,7 @@ export const Message = (props:MessageTypeProps) => {
     const {text} = props
     return (
         <div className={styles.message}>
-            {text}
+            <div className={styles.text}>{text}</div>
         </div>
     )
 }
