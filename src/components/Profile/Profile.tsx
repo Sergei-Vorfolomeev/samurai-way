@@ -8,7 +8,8 @@ export const Profile = (props:ProfilePageType) => {
     return (
         <div className={styles.content}>
             <ProfileInfo/>
-            <MyPosts posts={props.posts}/>
+            <MyPosts
+                posts={props.posts}/>
         </div>
     )
 }
